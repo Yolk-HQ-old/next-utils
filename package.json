@@ -9,7 +9,7 @@
     "url": "https://github.com/yolk-hq/next-utils/issues"
   },
   "homepage": "https://github.com/yolk-hq/next-utils#readme",
-  "version": "1.0.0",
+  "version": "0.0.0-semantically-released",
   "description": "A collection of utilities for use with Next.js",
   "license": "MIT",
   "keywords": [

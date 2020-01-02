@@ -7,7 +7,7 @@
 
 A set of Next.JS utilities to make your life easier.
 
-[**Read the docs**]() 
+[**Read the docs**]()
 
 ---
 
@@ -115,7 +115,6 @@ export class MyApp extends App<MyAppProps> {
 export default appWithApolloClient(MyApp);
 ```
 
-
 ### appWithSentry
 
 TODO
@@ -216,6 +215,10 @@ TODO
 
 TODO
 
+### RouterContext
+
+TODO
+
 ## Other Solutions
 
 I'm not aware of any, if you are please [make a pull request][prs] and add it
@@ -231,48 +234,32 @@ here!
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
 
-
 ## LICENSE
 
 MIT
 
 [npm]: https://www.npmjs.com/
 [node]: https://nodejs.org
-[build-badge]:
-  https://img.shields.io/travis/yolk-hq/next-utils.svg?style=flat-square
+[build-badge]: https://img.shields.io/travis/yolk-hq/next-utils.svg?style=flat-square
 [build]: https://travis-ci.org/yolk-hq/next-utils
-[coverage-badge]:
-  https://img.shields.io/codecov/c/github/yolk-hq/next-utils.svg?style=flat-square
+[coverage-badge]: https://img.shields.io/codecov/c/github/yolk-hq/next-utils.svg?style=flat-square
 [coverage]: https://codecov.io/github/yolk-hq/next-utils
-[version-badge]:
-  https://img.shields.io/npm/v/next-utils.svg?style=flat-square
+[version-badge]: https://img.shields.io/npm/v/next-utils.svg?style=flat-square
 [package]: https://www.npmjs.com/package/@yolkai/next-utils
-[downloads-badge]:
-  https://img.shields.io/npm/dm/@yolkai/next-utils.svg?style=flat-square
+[downloads-badge]: https://img.shields.io/npm/dm/@yolkai/next-utils.svg?style=flat-square
 [npmtrends]: http://www.npmtrends.com/@yolkai/next-utils
-[license-badge]:
-  https://img.shields.io/npm/l/@yolkai/next-utils.svg?style=flat-square
-[license]:
-  https://github.com/yolk-hq/next-utils/blob/master/LICENSE
-[prs-badge]:
-  https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square
+[license-badge]: https://img.shields.io/npm/l/@yolkai/next-utils.svg?style=flat-square
+[license]: https://github.com/yolk-hq/next-utils/blob/master/LICENSE
+[prs-badge]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square
 [prs]: http://makeapullrequest.com
-[coc-badge]:
-  https://img.shields.io/badge/code%20of-conduct-ff69b4.svg?style=flat-square
-[coc]:
-  https://github.com/yolk-hq/next-utils/blob/master/other/CODE_OF_CONDUCT.md
-[github-watch-badge]:
-  https://img.shields.io/github/watchers/yolk-hq/next-utils.svg?style=social
-[github-watch]:
-  https://github.com/yolk-hq/next-utils/watchers
-[github-star-badge]:
-  https://img.shields.io/github/stars/yolk-hq/next-utils.svg?style=social
-[github-star]:
-  https://github.com/yolk-hq/next-utils/stargazers
-[twitter]:
-  https://twitter.com/intent/tweet?text=Check%20out%20next-utils%20by%20%40yolkai%20https%3A%2F%2Fgithub.com%2Fyolk-hq%2Fnext-utils%20%F0%9F%91%8D
-[twitter-badge]:
-  https://img.shields.io/twitter/url/https/github.com/testing-library/cypress-testing-library.svg?style=social
+[coc-badge]: https://img.shields.io/badge/code%20of-conduct-ff69b4.svg?style=flat-square
+[coc]: https://github.com/yolk-hq/next-utils/blob/master/other/CODE_OF_CONDUCT.md
+[github-watch-badge]: https://img.shields.io/github/watchers/yolk-hq/next-utils.svg?style=social
+[github-watch]: https://github.com/yolk-hq/next-utils/watchers
+[github-star-badge]: https://img.shields.io/github/stars/yolk-hq/next-utils.svg?style=social
+[github-star]: https://github.com/yolk-hq/next-utils/stargazers
+[twitter]: https://twitter.com/intent/tweet?text=Check%20out%20next-utils%20by%20%40yolkai%20https%3A%2F%2Fgithub.com%2Fyolk-hq%2Fnext-utils%20%F0%9F%91%8D
+[twitter-badge]: https://img.shields.io/twitter/url/https/github.com/testing-library/cypress-testing-library.svg?style=social
 [emojis]: https://github.com/kentcdodds/all-contributors#emoji-key
 [all-contributors]: https://github.com/all-contributors/all-contributors
 [dom-testing-library]: https://github.com/testing-library/dom-testing-library

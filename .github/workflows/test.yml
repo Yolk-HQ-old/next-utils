@@ -3,7 +3,7 @@ on: [push]
 
 jobs:
   release:
-    name: Release
+    name: Run Tests
     runs-on: ubuntu-18.04
     steps:
       - name: Checkout

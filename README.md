@@ -5,7 +5,7 @@
 <img height="80" width="80" alt="steak" src="https://raw.githubusercontent.com/Yolk-HQ/next-utils/master/other/steak.png" />
 <img height="80" width="80" alt="eggs" src="https://raw.githubusercontent.com/Yolk-HQ/next-utils/master/other/eggs.png" />
 
-A set of Next.JS utilities to make your life easier.
+A set of Next.js utilities to make your life easier.
 
 [**Read the docs**]()
 
@@ -25,13 +25,14 @@ A set of Next.JS utilities to make your life easier.
 
 ---
 
-## The problem
+## Overview
 
-You want to use **server-rendered** [react-apollo](https://github.com/apollographql/react-apollo), [Sentry](https://sentry.io/for/javascript/), [lingui](https://github.com/lingui/js-lingui), [react-cookies](https://github.com/bukinoshita/react-cookies), or add authentication to your Next.JS app.
+React [Higher-Order Components](https://reactjs.org/docs/higher-order-components.html) for use with [Next.js](https://nextjs.org/), enabling simple, server-side-render-compatible configuration of functionality such as:
 
-## This solution
-
-This allows you to use React HoC's to solve these problems elegantly.
+- [Apollo Client](https://github.com/apollographql/apollo-client) + [react-apollo](https://github.com/apollographql/react-apollo)
+- [Sentry](https://sentry.io/for/javascript/)
+- [LinguiJS](https://github.com/lingui/js-lingui)
+- [react-cookies](https://github.com/bukinoshita/react-cookies)
 
 ## Table of Contents
 
@@ -56,19 +57,9 @@ should be installed as one of your project's `dependencies`:
 npm install next-utils
 ```
 
-### With typescript
+### With TypeScript
 
-It just works! This module provides Typescript declarations!
-
-## Usage
-
-If you want to use any of the functions, simply import them.
-
-For e.g.
-
-```typescript
-import { appWithApolloClient } from '@yolkai/next-utils';
-```
+It just works! This module provides TypeScript declarations!
 
 ### appWithApolloClient
 
@@ -84,6 +75,8 @@ import { Cookies } from 'react-cookie';
 import { NextContext } from 'next';
 import { AppInitialProps } from 'next/app';
 import { DefaultQuery } from 'next/router';
+
+import { appWithApolloClient } from '@yolkai/next-utils';
 
 interface MyAppParams {
   apolloClient: ApolloClient<NormalizedCacheObject>;
@@ -114,6 +107,8 @@ export class MyApp extends App<MyAppProps> {
 
 export default appWithApolloClient(MyApp);
 ```
+
+NOTE: Using this HoC will disable [Automatic Static Optimization](https://nextjs.org/docs/old#automatic-static-optimization) (statically built pages), since the HoC forces every page to implement getInitialProps.
 
 ### appWithSentry
 
@@ -168,7 +163,13 @@ export class MyApp extends App<MyAppProps> {
 export default appWithCookies(MyApp);
 ```
 
-### withAuthentication
+### checkAuthenticated & withAuthentication
+
+#### checkAuthenticated
+
+TODO
+
+#### withAuthentication
 
 A higher-order component which ensures that the viewer is authenticated, using the access token
 stored in a cookie "token". If the access token is invalid, expired, or missing, the viewer is
@@ -202,10 +203,6 @@ Note:
 
 This HoC may only be applied to Next.js page components, since getInitialProps() has no effect on
 non-page components.
-
-### checkAuthenticated
-
-TODO
 
 ### makeAuthCallbackPage
 

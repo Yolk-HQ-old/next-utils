@@ -37,7 +37,6 @@ React [Higher-Order Components](https://reactjs.org/docs/higher-order-components
 ## Table of Contents
 
 - [Installation](#installation)
-  - [With typescript](#with-typescript)
 - [Usage](#usage)
   - [appWithApolloClient](#appwithapolloclient)
   - [appWithSentry](#appWithSentry)
@@ -56,10 +55,6 @@ should be installed as one of your project's `dependencies`:
 ```sh
 npm install next-utils
 ```
-
-### With TypeScript
-
-It just works! This module provides TypeScript declarations!
 
 ### appWithApolloClient
 

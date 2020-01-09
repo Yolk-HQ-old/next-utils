@@ -32,7 +32,7 @@ Please make sure to run the tests before you commit your changes.
 
 ## Running Tests
 
-Once you have dependencies installed, `npm i`, you can run the tests with `npm run test`.
+Once you have dependencies installed, `npm install`, you can run the tests with `npm run test`.
 
 ## Help needed
 

@@ -1,0 +1,82 @@
+{
+  "name": "@yolkai/next-utils",
+  "author": "Yolk-HQ <opensource@yolk.ai> (https://www.yolk.ai/)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yolk-hq/next-utils.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yolk-hq/next-utils/issues"
+  },
+  "homepage": "https://github.com/yolk-hq/next-utils#readme",
+  "version": "0.0.0-semantically-released",
+  "description": "A collection of utilities for use with Next.js",
+  "license": "MIT",
+  "keywords": [
+    "react",
+    "next.js",
+    "yolk",
+    "eggs",
+    "react-apollo",
+    "server-rendered",
+    "react-cookies"
+  ],
+  "main": "lib/index.js",
+  "module": "esm/index.js",
+  "sideEffects": false,
+  "scripts": {
+    "?info": "Display information about the scripts.",
+    "info": "npm-scripts-info",
+    "?lib:build": "Build the library from \"./src/\" to \"./lib/\".",
+    "lib:build": "npm-run-all --sequential lib:clean lib:tsc",
+    "?lib:clean": "Delete generated files in \"./lib/\"",
+    "lib:clean": "del-cli ./lib",
+    "?lib:tsc": "Compile TypeScript modules to JS from \"./src/\" to \"./lib/\".",
+    "lib:tsc": "tsc --build ./tsconfig.json ./tsconfig.esm.json",
+    "?lib:tsc:watch": "Compile TypeScript modules to JS from \"./src/\" to \"./lib/\".",
+    "lib:tsc:watch": "npm run lib:tsc -- --watch",
+    "?format:check": "Check that all source files are formatted correctly with Prettier.",
+    "format:check": "prettier --list-different \"**/*.{js,jsx,ts,tsx}\"",
+    "?format:write": "Format all incorrectly-formatted source files and writes them to disk.",
+    "format:write": "prettier --write \"**/*.{js,jsx,ts,tsx}\"",
+    "?lint": "Check that all source files are formatted correctly with eslint.",
+    "lint": "eslint . --ext \".ts,.tsx\"",
+    "?test": "Run all tests and build the demo application for production.",
+    "test": "npm-run-all --sequential format:check lib:build"
+  },
+  "dependencies": {
+    "@lingui/core": "^2.9.0",
+    "@lingui/react": "^2.9.0",
+    "@sentry/browser": "^5.7.1",
+    "@sentry/integrations": "^5.7.1",
+    "@sentry/node": "^5.7.1",
+    "@types/accepts": "^1.3.5",
+    "@types/lingui__core": "^2.7.0",
+    "@types/lingui__react": "^2.8.1",
+    "@types/nanoid": "^2.1.0",
+    "@types/react": "16.9.11",
+    "accepts": "^1.3.7",
+    "apollo-cache-inmemory": "^1.6.3",
+    "apollo-client": "^2.6.4",
+    "bcp-47-match": "1.0.1",
+    "hoist-non-react-statics": "^3.3.0",
+    "nanoid": "^2.1.6",
+    "react-cookie": "^4.0.1"
+  },
+  "devDependencies": {
+    "@apollo/react-ssr": "3.1.3",
+    "@types/hoist-non-react-statics": "3.3.1",
+    "@typescript-eslint/parser": "2.14.0",
+    "del-cli": "3.0.0",
+    "eslint": "6.8.0",
+    "eslint-config-prettier": "6.9.0",
+    "npm-run-all": "4.1.5",
+    "npm-scripts-info": "0.3.9",
+    "prettier": "1.19.1",
+    "typescript": "3.7.2"
+  },
+  "peerDependencies": {
+    "next": "^9.1.4",
+    "react": "^16.11.0"
+  }
+}

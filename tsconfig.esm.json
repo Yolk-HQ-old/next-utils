@@ -1,0 +1,8 @@
+// TypeScript configuration used to compile the next-utils library to './esm/'
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "module": "esnext",
+    "outDir": "./esm"
+  }
+}

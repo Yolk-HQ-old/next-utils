@@ -1,0 +1,33 @@
+// TypeScript configuration used to compile the next-utils library to './lib/'
+{
+  "compilerOptions": {
+    // Use esModuleInterop and allowSyntheticDefaultImports to allow importing CJS exports as ESM default exports.
+    // This is required for some packages, e.g. hoist-non-react-statics:
+    // https://github.com/DefinitelyTyped/DefinitelyTyped/pull/28028/files#r211055463
+    "allowSyntheticDefaultImports": true,
+    "declaration": true,
+    "esModuleInterop": true,
+    "jsx": "react",
+    "lib": ["dom", "es2016"],
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "outDir": "./lib",
+    "preserveConstEnums": true,
+    "sourceMap": true,
+    "strict": true,
+    "target": "es5"
+  },
+  "include": [
+    "./src/**/*",
+    // Include './typings' in TypeScripts search paths for global declarations.
+    // This enables us to augment existing type definitions for npm packages which have
+    // missing/incorrect types.
+    //
+    // See also:
+    //  - https://www.typescriptlang.org/docs/handbook/tsconfig-json.html#types-typeroots-and-types
+    //  - https://github.com/Microsoft/TypeScript/issues/22217#issuecomment-369783776
+    "./typings/**/*"
+  ]
+}

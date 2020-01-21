@@ -40,6 +40,8 @@ React [Higher-Order Components](https://reactjs.org/docs/higher-order-components
   - [appWithCookies](#appwithcookies)
   - [withAuthentication](#withauthentication)
   - [checkAuthenticated](#checkauthenticated)
+  - [redirect](#redirect)
+  - [RouterContext](#RouterContext)
 - [Other Solutions](#other-solutions)
 - [LICENSE](#license)
 
@@ -56,11 +58,12 @@ npm install next-utils
 
 NOTE: Using any of these Higher-Order-Components will disable [Automatic Static Optimization](https://nextjs.org/docs/old#automatic-static-optimization) (statically built pages), since the Higher-Order-Component forces every page to implement `getInitialProps`.
 
-### Apollo Client
+### 🔮 Apollo Client
 
 #### appWithApolloClient
 
 [Example Usage](https://github.com/Yolk-HQ/next-utils/tree/master/examples/appWithApolloClient.example.tsx)
+
 [Code](https://github.com/Yolk-HQ/next-utils/tree/master/src/internal/appWithApolloClient.tsx)
 
 React higher-order component (HoC) which wraps the App component and:
@@ -68,7 +71,7 @@ React higher-order component (HoC) which wraps the App component and:
 - Performs the page's initial GraphQL request on the server, and serializes the result to be used as the initial Apollo state once the client mounts.
 - Passes the Apollo client to the wrapped App component.
 
-### Sentry
+### 🔭 Sentry
 
 [Example Usage](https://github.com/Yolk-HQ/next-utils/tree/master/examples/appWithSentry.example.tsx)
 
@@ -84,11 +87,12 @@ React higher-order component (HoC) which wraps the App component and captures an
 
 Initializes Sentry and creates a `captureException` function which can be used with `appWithSentry`. This function is unique and adds extra Next.js information to captured exceptions.
 
-### LinguiJS
+### 📚 LinguiJS
 
 #### appWithLingui
 
 [Example Usage](https://github.com/Yolk-HQ/next-utils/tree/master/examples/appWithLingui.example.tsx)
+
 [Code](https://github.com/Yolk-HQ/next-utils/tree/master/src/internal/appWithLingui.tsx)
 
 React higher-order component (HoC) that wraps the App component in LinguiJs's `I18nProvider` component.
@@ -98,20 +102,22 @@ It will then detect:
 1. The best language to use based on the incoming request
 2. Load the catalog for that language, and supply it to the `I18nProvider`
 
-### React Cookies
+### 🍪 React Cookies
 
 #### appWithCookies
 
 [Example Usage](https://github.com/Yolk-HQ/next-utils/tree/master/examples/appWithCookies.example.tsx)
+
 [Code](https://github.com/Yolk-HQ/next-utils/tree/master/src/internal/appWithCookies.tsx)
 
 React higher-order component (HoC) which wraps the App component and passes a cookies access object to the App component.
 
-### Authentication
+### 🔏 Authentication
 
 ### makeRedirectPage
 
 [Example Usage](https://github.com/Yolk-HQ/next-utils/tree/master/examples/makeRedirectPage.example.tsx)
+
 [Code](https://github.com/Yolk-HQ/next-utils/tree/master/src/internal/makeRedirectPage.tsx)
 
 Next.js Page Component which redirects to the given URL using the given HTTP status code.
@@ -119,6 +125,7 @@ Next.js Page Component which redirects to the given URL using the given HTTP sta
 ### redirect
 
 [Example Usage](https://github.com/Yolk-HQ/next-utils/tree/master/examples/redirect.example.tsx)
+
 [Code](https://github.com/Yolk-HQ/next-utils/tree/master/src/internal/redirect.ts)
 
 A small utility function helpful when redirecting users both on the server and the client.
@@ -128,6 +135,7 @@ A small utility function helpful when redirecting users both on the server and t
 #### RouterContext
 
 [Example Usage](https://github.com/Yolk-HQ/next-utils/tree/master/examples/RouterContext.example.tsx)
+
 [Code](https://github.com/Yolk-HQ/next-utils/tree/master/src/internal/RouterContext.ts)
 
 A React Context object which is very helpful when using Next.js with preview tools such as Storybook. Allows for components to use `<Link>` / `Router` provided by an ancestor component without errors.

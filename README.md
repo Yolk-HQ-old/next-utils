@@ -158,55 +158,6 @@ export class MyApp extends App<MyAppProps> {
 export default appWithCookies(MyApp);
 ```
 
-### checkAuthenticated & withAuthentication
-
-#### checkAuthenticated
-
-TODO
-
-#### withAuthentication
-
-A higher-order component which ensures that the viewer is authenticated, using the access token
-stored in a cookie "token". If the access token is invalid, expired, or missing, the viewer is
-redirected to the login application.
-
-For this to work you need to have a `/auth_callback` page defined in the application.
-
-```typescript
-import getConfig from 'next/config';
-import { withAuthentication } from '@yolkai/next-utils';
-
-import checkAuthenticated from '../../common/checkAuthenticated';
-
-class FlowPage extends React.Component<FlowPageProps, FlowPageState> {
-  ...
-}
-
-const { authUrl, host, protocol } = getConfig().publicRuntimeConfig;
-const AuthenticationConfig = {
-  authUrl,
-  host,
-  protocol,
-  checkAuthenticated,
-};
-
-export default withAuthentication(AuthenticationConfig)(FlowPage);
-
-```
-
-Note:
-
-This HoC may only be applied to Next.js page components, since getInitialProps() has no effect on
-non-page components.
-
-### makeAuthCallbackPage
-
-TODO
-
-### makeRedirectPage
-
-TODO
-
 ### RouterContext
 
 TODO

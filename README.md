@@ -9,7 +9,7 @@ A set of Next.js utilities to make your life easier.
 
 ---
 
-[![Actions Status][build-badge]][buildbuild]
+[![Actions Status][build-badge]][build]
 [![version][version-badge]][package]
 [![downloads][downloads-badge]][npmtrends]
 [![MIT License][license-badge]][license]

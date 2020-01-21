@@ -22,7 +22,8 @@
     "eggs",
     "react-apollo",
     "server-rendered",
-    "react-cookies"
+    "react-cookies",
+    "sentry"
   ],
   "main": "lib/index.js",
   "module": "esm/index.js",

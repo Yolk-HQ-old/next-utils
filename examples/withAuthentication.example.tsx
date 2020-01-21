@@ -4,7 +4,9 @@ import { withAuthentication } from '@yolkai/next-utils';
 import checkAuthenticated from '../../common/checkAuthenticated';
 
 class FlowPage extends React.Component<FlowPageProps, FlowPageState> {
-  ...
+  render() {
+    return null;
+  }
 }
 
 const { authUrl, host, protocol } = getConfig().publicRuntimeConfig;

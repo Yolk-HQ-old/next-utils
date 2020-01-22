@@ -12,24 +12,17 @@ import React from 'react';
 
 import { appWithSentry, initSentry } from '@yolkai/next-utils';
 
-const { sentryDsn } = process.browser
-  ? getConfig().publicRuntimeConfig
-  : getConfig().serverRuntimeConfig;
+const { sentryDsn } = window ? getConfig().publicRuntimeConfig : getConfig().serverRuntimeConfig;
 const { captureException } = initSentry(sentryDsn, __next_build_id__, __next_app_path__);
 
-export interface MyAppParams {}
-
-type MyAppContext = AppContext & MyAppParams;
 type MyAppInitialProps = AppInitialProps;
-type MyAppProps = AppProps & MyAppParams & MyAppInitialProps;
-
-export type MyAppPageContext = NextPageContext & MyAppParams;
+type MyAppProps = AppProps & MyAppInitialProps;
 
 class MyApp extends React.Component<MyAppProps> {
-  static async getInitialProps({ ctx, Component }: MyAppContext): Promise<MyAppInitialProps> {
+  static async getInitialProps({ ctx, Component }: AppContext): Promise<MyAppInitialProps> {
     let pageProps;
     if (Component.getInitialProps) {
-      const c: MyAppPageContext = { ...ctx };
+      const c: NextPageContext = { ...ctx };
       pageProps = await Component.getInitialProps(c);
     } else {
       pageProps = {};

@@ -1,13 +1,12 @@
 import React from 'react';
 
 import { redirect } from '@yolkai/next-utils';
-import { MyAppPageContext } from './App';
 
 /**
  * A Next.js page which logs out the user by redirecting them to the root.
  */
 export class LogoutPage extends React.Component {
-  static async getInitialProps(ctx: MyAppPageContext) {
+  static async getInitialProps(ctx) {
     redirect('/', ctx);
   }
 

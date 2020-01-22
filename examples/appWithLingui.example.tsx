@@ -7,12 +7,11 @@
 
 import { NextPageContext } from 'next';
 import App, { AppContext, AppInitialProps, AppProps } from 'next/app';
-import getConfig from 'next/config';
 import React from 'react';
 
 import { appWithLingui } from '@yolkai/next-utils';
 
-const LANGUAGES = getConfig().publicRuntimeConfig.supportedLanguages;
+const LANGUAGES = ['en', 'es'];
 
 export interface MyAppParams {
   language: string;
@@ -49,7 +48,4 @@ class MyApp extends React.Component<MyAppProps> {
   }
 }
 
-export default appWithLingui(
-  async (language: string) => (await import(`../locales/${language}/messages.po`)).default,
-  LANGUAGES,
-)(MyApp);
+export default appWithLingui(async () => null, LANGUAGES)(MyApp);

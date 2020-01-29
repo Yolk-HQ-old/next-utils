@@ -2,25 +2,21 @@
 
 # next-utils
 
-<img height="80" width="80" alt="steak" src="https://raw.githubusercontent.com/Yolk-HQ/next-utils/master/other/steak.png" />
-<img height="80" width="80" alt="eggs" src="https://raw.githubusercontent.com/Yolk-HQ/next-utils/master/other/eggs.png" />
+<img height="80" width="80" alt="steak" src="https://github.com/Yolk-HQ/next-utils/blob/master/other/steak.png?raw=true" />
+<img height="80" width="80" alt="eggs" src="https://github.com/Yolk-HQ/next-utils/blob/master/other/eggs.png?raw=true" />
 
 A set of Next.js utilities to make your life easier.
 
-[**Read the docs**]()
-
 ---
 
-[![Build Status][build-badge]][build]
-[![Code Coverage][coverage-badge]][coverage]
-[![version][version-badge]][package] [![downloads][downloads-badge]][npmtrends]
+[![Actions Status][build-badge]][build]
+[![version][version-badge]][package]
+[![downloads][downloads-badge]][npmtrends]
 [![MIT License][license-badge]][license]
 
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
 [![PRs Welcome][prs-badge]][prs] [![Code of Conduct][coc-badge]][coc]
 
-[![Watch on GitHub][github-watch-badge]][github-watch]
-[![Star on GitHub][github-star-badge]][github-star]
 [![Tweet][twitter-badge]][twitter]
 
 ---
@@ -44,6 +40,8 @@ React [Higher-Order Components](https://reactjs.org/docs/higher-order-components
   - [appWithCookies](#appwithcookies)
   - [withAuthentication](#withauthentication)
   - [checkAuthenticated](#checkauthenticated)
+  - [redirect](#redirect)
+  - [RouterContext](#RouterContext)
 - [Other Solutions](#other-solutions)
 - [LICENSE](#license)
 
@@ -56,118 +54,99 @@ should be installed as one of your project's `dependencies`:
 npm install next-utils
 ```
 
-### appWithApolloClient
+## Note
+
+NOTE: Using any of these Higher-Order-Components will disable [Automatic Static Optimization](https://nextjs.org/docs/old#automatic-static-optimization) (statically built pages), since the Higher-Order-Component forces every page to implement `getInitialProps`.
+
+### 🔮 **Apollo Client**
+
+#### appWithApolloClient
+
+[Example Usage](https://github.com/Yolk-HQ/next-utils/tree/master/examples/appWithApolloClient.example.tsx)
+
+[Code](https://github.com/Yolk-HQ/next-utils/tree/master/src/internal/appWithApolloClient.tsx)
 
 React higher-order component (HoC) which wraps the App component and:
 
 - Performs the page's initial GraphQL request on the server, and serializes the result to be used as the initial Apollo state once the client mounts.
 - Passes the Apollo client to the wrapped App component.
 
-```typescript
-import ApolloClient from 'apollo-client';
-import { NormalizedCacheObject } from 'apollo-cache-inmemory';
-import { Cookies } from 'react-cookie';
-import { NextContext } from 'next';
-import { AppInitialProps } from 'next/app';
-import { DefaultQuery } from 'next/router';
+### 🔭 **Sentry**
 
-import { appWithApolloClient } from '@yolkai/next-utils';
+[Example Usage](https://github.com/Yolk-HQ/next-utils/tree/master/examples/appWithSentry.example.tsx)
 
-interface MyAppParams {
-  apolloClient: ApolloClient<NormalizedCacheObject>;
-}
+#### appWithSentry
 
-type MyAppProps = AppProps & MyAppParams;
-type MyAppContext = NextAppContext & MyAppParams;
+[Code](https://github.com/Yolk-HQ/next-utils/tree/master/src/internal/appWithSentry.tsx)
 
-export type MyAppPageContext<Q extends DefaultQuery = DefaultQuery> = NextContext<Q> & MyAppParams;
+React higher-order component (HoC) which wraps the App component and captures any exceptions thrown in `getInitialProps` and emits them to Sentry.
 
-export class MyApp extends App<MyAppProps> {
-  static async getInitialProps({
-    ctx,
-    Component,
-    apolloClient,
-  }: MyAppContext): Promise<AppInitialProps> {
-    let pageProps;
-    if (Component.getInitialProps) {
-      const c: MyAppPageContext = { ...ctx, apolloClient };
-      pageProps = await Component.getInitialProps(c);
-    } else {
-      pageProps = {};
-    }
+#### initSentry
 
-    return { pageProps };
-  }
-}
+[Code](https://github.com/Yolk-HQ/next-utils/tree/master/src/internal/initSentry.tsx)
 
-export default appWithApolloClient(MyApp);
-```
+Initializes Sentry and creates a `captureException` function which can be used with `appWithSentry`. This function is unique and adds extra Next.js information to captured exceptions.
 
-NOTE: Using this HoC will disable [Automatic Static Optimization](https://nextjs.org/docs/old#automatic-static-optimization) (statically built pages), since the HoC forces every page to implement getInitialProps.
+### 📚 **LinguiJS**
 
-### appWithSentry
+#### appWithLingui
 
-TODO
+[Example Usage](https://github.com/Yolk-HQ/next-utils/tree/master/examples/appWithLingui.example.tsx)
 
-### appWithLingui
+[Code](https://github.com/Yolk-HQ/next-utils/tree/master/src/internal/appWithLingui.tsx)
 
-TODO
+React higher-order component (HoC) that wraps the App component in LinguiJs's `I18nProvider` component.
 
-### appWithCookies
+It will then detect:
+
+1. The best language to use based on the incoming request
+2. Load the catalog for that language, and supply it to the `I18nProvider`
+
+### 🍪 **React Cookies**
+
+#### appWithCookies
+
+[Example Usage](https://github.com/Yolk-HQ/next-utils/tree/master/examples/appWithCookies.example.tsx)
+
+[Code](https://github.com/Yolk-HQ/next-utils/tree/master/src/internal/appWithCookies.tsx)
 
 React higher-order component (HoC) which wraps the App component and passes a cookies access object to the App component.
 
-```typescript
-import ApolloClient from 'apollo-client';
-import { NormalizedCacheObject } from 'apollo-cache-inmemory';
-import { Cookies } from 'react-cookie';
-import { NextContext } from 'next';
-import { AppInitialProps } from 'next/app';
-import { DefaultQuery } from 'next/router';
-import App, { AppContext, , AppProps } from 'next/app';
+### 🔏 **Authentication**
 
-interface MyAppParams {
-  cookies: Cookies;
-  isServer: boolean;
-}
+#### makeRedirectPage
 
-type MyAppProps = AppProps & MyAppParams;
-type MyAppContext = NextAppContext & MyAppParams;
+[Example Usage](https://github.com/Yolk-HQ/next-utils/tree/master/examples/makeRedirectPage.example.tsx)
 
-export type MyAppPageContext<Q extends DefaultQuery = DefaultQuery> = NextContext<Q> & MyAppParams;
+[Code](https://github.com/Yolk-HQ/next-utils/tree/master/src/internal/makeRedirectPage.tsx)
 
-export class MyApp extends App<MyAppProps> {
-  static async getInitialProps({
-    ctx,
-    Component,
-    cookies,
-    isServer,
-  }: MyAppContext): Promise<AppInitialProps> {
-    let pageProps;
-    if (Component.getInitialProps) {
-      const c: MyAppPageContext = { ...ctx, apolloClient, cookies, isServer };
-      pageProps = await Component.getInitialProps(c);
-    } else {
-      pageProps = {};
-    }
+Next.js Page Component which redirects to the given URL using the given HTTP status code.
 
-    return { pageProps };
-  }
-}
+#### redirect
 
-export default appWithCookies(MyApp);
-```
+[Example Usage](https://github.com/Yolk-HQ/next-utils/tree/master/examples/redirect.example.tsx)
 
-### RouterContext
+[Code](https://github.com/Yolk-HQ/next-utils/tree/master/src/internal/redirect.ts)
 
-TODO
+A small utility function helpful when redirecting users both on the server and the client.
+
+### Testing
+
+#### RouterContext
+
+[Example Usage](https://github.com/Yolk-HQ/next-utils/tree/master/examples/RouterContext.example.tsx)
+
+[Code](https://github.com/Yolk-HQ/next-utils/tree/master/src/internal/RouterContext.ts)
+
+A React Context object which is very helpful when using Next.js with preview tools such as Storybook. Allows for components to use `<Link>` / `Router` provided by an ancestor component without errors.
 
 ## Other Solutions
 
-I'm not aware of any, if you are please [make a pull request][prs] and add it
-here!
+Some of these solutions are based on the examples found [the official Next.js examples repo](https://github.com/zeit/next.js/tree/master/examples).
 
-## Used By
+If you see an improvment please [make a pull request][prs].
+
+## Used in Production By
 
 [Yolk AI](https://www.yolk.ai/)
 
@@ -183,8 +162,8 @@ MIT
 
 [npm]: https://www.npmjs.com/
 [node]: https://nodejs.org
-[build-badge]: https://img.shields.io/travis/yolk-hq/next-utils.svg?style=flat-square
-[build]: https://travis-ci.org/yolk-hq/next-utils
+[build-badge]: https://github.com/Yolk-HQ/next-utils/workflows/Test/badge.svg
+[build]: https://github.com/Yolk-HQ/next-utils/actions
 [coverage-badge]: https://img.shields.io/codecov/c/github/yolk-hq/next-utils.svg?style=flat-square
 [coverage]: https://codecov.io/github/yolk-hq/next-utils
 [version-badge]: https://img.shields.io/npm/v/next-utils.svg?style=flat-square
@@ -205,5 +184,3 @@ MIT
 [twitter-badge]: https://img.shields.io/twitter/url/https/github.com/testing-library/cypress-testing-library.svg?style=social
 [emojis]: https://github.com/kentcdodds/all-contributors#emoji-key
 [all-contributors]: https://github.com/all-contributors/all-contributors
-[dom-testing-library]: https://github.com/testing-library/dom-testing-library
-[cypress]: https://www.cypress.io/

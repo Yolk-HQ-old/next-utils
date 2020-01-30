@@ -43,3 +43,9 @@ requests! Thanks!
 
 [egghead]: https://egghead.io/series/how-to-contribute-to-an-open-source-project-on-github
 [issues]: https://github.com/yolk-hq/next-utils/issues
+
+## Releases
+
+This project uses [semantic-release](https://github.com/semantic-release/semantic-release) which releases automatically when code is merged to master.
+
+[Your commit message specifies the release.](https://github.com/semantic-release/semantic-release#commit-message-format)

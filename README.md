@@ -1,11 +1,13 @@
-<center>
+<div align="center">
 
 # next-utils
 
-<img height="80" width="80" alt="steak" src="https://github.com/Yolk-HQ/next-utils/blob/master/other/steak.png?raw=true" />
-<img height="80" width="80" alt="eggs" src="https://github.com/Yolk-HQ/next-utils/blob/master/other/eggs.png?raw=true" />
+<img height="80" width="80" alt="steak" src="https://raw.githubusercontent.com/Yolk-HQ/next-utils/master/other/eggs.png" />
+<img height="80" width="80" alt="eggs" src="https://raw.githubusercontent.com/Yolk-HQ/next-utils/master/other/steak.png" />
 
 A set of Next.js utilities to make your life easier.
+
+</div>
 
 ---
 

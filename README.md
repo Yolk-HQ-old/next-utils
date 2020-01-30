@@ -1,4 +1,4 @@
-<center>
+<div align="center">
 
 # next-utils
 
@@ -6,6 +6,8 @@
 <img height="80" width="80" alt="eggs" src="https://raw.githubusercontent.com/Yolk-HQ/next-utils/master/other/steak.png" />
 
 A set of Next.js utilities to make your life easier.
+
+</div>
 
 ---
 

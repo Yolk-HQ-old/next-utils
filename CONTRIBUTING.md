@@ -48,4 +48,4 @@ requests! Thanks!
 
 This project uses [semantic-release](https://github.com/semantic-release/semantic-release) which releases automatically when code is merged to master.
 
-[Your commit message specifies the release.](https://github.com/semantic-release/semantic-release#commit-message-format)
+[Your commit message specifies the release.](https://github.com/conventional-changelog/conventional-changelog/tree/master/packages/conventional-changelog-angular#angular-convention)

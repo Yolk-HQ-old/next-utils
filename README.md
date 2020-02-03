@@ -2,9 +2,6 @@
 
 # next-utils
 
-<img height="80" width="80" alt="steak" src="https://raw.githubusercontent.com/Yolk-HQ/next-utils/master/other/eggs.png" />
-<img height="80" width="80" alt="eggs" src="https://raw.githubusercontent.com/Yolk-HQ/next-utils/master/other/steak.png" />
-
 A set of Next.js utilities to make your life easier.
 
 </div>
@@ -53,7 +50,7 @@ This module is distributed via [npm][npm] which is bundled with [node][node] and
 should be installed as one of your project's `dependencies`:
 
 ```sh
-npm install next-utils
+npm install @yolkai/next-utils
 ```
 
 ## Note

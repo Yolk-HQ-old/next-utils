@@ -2,8 +2,8 @@ name: Test
 on: [push]
 
 jobs:
-  release:
-    name: Run Tests
+  test-and-release:
+    name: Run tests and release
     runs-on: ubuntu-18.04
     steps:
       - name: Checkout
@@ -16,3 +16,8 @@ jobs:
         run: npm ci
       - name: Run tests
         run: npm t
+      - name: Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npx semantic-release

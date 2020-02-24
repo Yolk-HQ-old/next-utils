@@ -18,6 +18,7 @@ const stubRouter: NextRouter = {
   pathname: '/',
   query: {},
   asPath: '/',
+  isFallback: false,
   push() {
     throw new Error('Not implemented');
   },

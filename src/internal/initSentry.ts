@@ -43,7 +43,7 @@ export default function initSentry(sentryDsn: string, buildId: string, appPath: 
            *  - https://github.com/getsentry/sentry-javascript/blob/22a2a4e42f59fa83052d71ad53c1786f5596d526/packages/integrations/src/rewriteframes.ts
            */
           new RewriteFrames({
-            iteratee: frame => {
+            iteratee: (frame) => {
               if (frame.filename && frame.filename.includes('node_modules')) {
                 // Skip frames for sources in node_modules; we only care about application code
                 return frame;
@@ -69,7 +69,7 @@ export default function initSentry(sentryDsn: string, buildId: string, appPath: 
   });
 
   const captureException: CaptureExceptionFn = ({ ctx, errorInfo, exception }) => {
-    Sentry.configureScope(scope => {
+    Sentry.configureScope((scope) => {
       scope.setTag('ssr', process.browser ? 'false' : 'true');
 
       if (exception.message) {

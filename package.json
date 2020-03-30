@@ -62,7 +62,7 @@
     "bcp-47-match": "^1.0.1",
     "graphql": "^14.5.8",
     "hoist-non-react-statics": "^3.3.0",
-    "nanoid": "^2.1.6",
+    "nanoid": "^3.0.0",
     "react-cookie": "^4.0.1"
   },
   "devDependencies": {

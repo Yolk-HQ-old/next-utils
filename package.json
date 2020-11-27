@@ -79,7 +79,7 @@
     "prettier": "2.0.4",
     "react": "16.13.1",
     "typescript": "3.8.3",
-    "semantic-release": "17.0.4"
+    "semantic-release": "17.2.3"
   },
   "peerDependencies": {
     "apollo-cache-inmemory": "^1.6.3",

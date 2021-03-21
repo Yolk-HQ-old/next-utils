@@ -4,6 +4,8 @@
 
 A set of Next.js utilities to make your life easier.
 
+ATTENTION: This project is no longer maintained.
+
 </div>
 
 ---
